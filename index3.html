@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metro Crowd Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+        }
+        h1 {
+            color: #FFD700;
+        }
+        button {
+            background-color: #FFD700;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #E0A800;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color: #f1f1f1;
+            color: #333;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            background-color: #f1f1f1;
+        }
+        select {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 12px 0;
+        }
+        .checkbox-container input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .checkbox-container label {
+            font-size: 16px;
+            color: #fff;
+        }
+        .map-container {
+            margin-top: 20px;
+        }
+        iframe {
+            border-radius: 10px;
+        }
+        .date-info {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-subway"></i> Metro Crowd Management</h1>
+        
+        <div class="date-info">
+            <p>Today: <strong id="today-date"></strong></p>
+            <p>Day: <strong id="today-day"></strong></p>
+            <p>Current Time: <strong id="current-time"></strong></p>
+        </div>
+        
+        <form id="booking-form">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            
+            <select name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            
+            <select name="from-station">
+                <option value="Dwarka Sector 21">Dwarka Sector 21</option>
+                <option value="Indraprastha">Indraprastha</option>
+                <option value="Mandi House">Mandi House</option>
+                <option value="Rajiv Chowk">Rajiv Chowk</option>
+                <option value="Kashmere Gate">Kashmere Gate</option>
+                <option value="Blue Line">Blue Line</option>
+                <option value="Sector 16">Sector 16</option>
+            </select>
+            
+            <select name="to-station">
+                <option value="Dwarka Sector 21">Dwarka Sector 21</option>
+                <option value="Indraprastha">Indraprastha</option>
+                <option value="Mandi House">Mandi House</option>
+                <option value="Rajiv Chowk">Rajiv Chowk</option>
+                <option value="Kashmere Gate">Kashmere Gate</option>
+                
+                <option value="Sector 16">Sector 16</option>
+            </select>
+            
+            <select name="coach">
+                <option value="Coach 1">Coach 1</option>
+                <option value="Coach 2">Coach 2</option>
+                <option value="Coach 3">Coach 3</option>
+                <option value="Coach 4">Coach 4</option>
+                <option value="Coach 5">Coach 5</option>
+                <option value="Coach 6">Coach 6</option>
+                <option value="Coach 7">Coach 7</option>
+                <option value="Coach 8">Coach 8</option>
+            </select>
+
+            <div class="checkbox-container">
+                <input type="checkbox" name="emergency">
+                <label for="emergency">Emergency Booking</label>
+            </div>
+            
+            <button type="submit">Book Ticket</button>
+        </form>
+        
+        <p id="message"></p>
+        
+        <div class="map-container">
+            <h2>Route Map</h2>
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Metro+Station" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function updateTime() {
+            let now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleTimeString();
+            
+            // Date and Day
+            document.getElementById('today-date').textContent = now.toLocaleDateString();
+            let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            document.getElementById('today-day').textContent = dayNames[now.getDay()];
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        $(document).ready(function() {
+            $('#booking-form').on('submit', function(event) {
+                event.preventDefault();
+                $.post('/book', $(this).serialize(), function(response) {
+                    $('#message').text(response.message).css('color', 'yellow');
+                    location.reload();
+                });
+            });
+        });
+    </script>
+<a href="index4.html">Continue next!</a>
+</body>
+</html>

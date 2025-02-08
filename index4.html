@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Seat Availability</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .seat-info {
+            margin: 20px 0;
+        }
+        .seat-info p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 20px;
+            width: 0%;
+            background: #FFD700;
+            text-align: center;
+            color: black;
+            line-height: 20px;
+            transition: width 1s ease-in-out;
+        }
+        .recommendation {
+            font-size: 20px;
+            color: #FFD700;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metro Seat Availability</h1>
+        <div class="seat-info">
+            <p><strong>Coach:</strong> <span id="coach-name">-</span></p>
+            <p><strong>Available Seats:</strong> <span id="available-seats">-</span></p>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progress">0%</div>
+        </div>
+        <p class="recommendation" id="recommendation">Checking availability...</p>
+    </div>
+    <script>
+        function getRandomData() {
+            return {
+                coach: "A1",
+                seats: Math.floor(Math.random() * 51) // Random number between 0 and 50
+            };
+        }
+        function updateSeatInfo() {
+            const data = getRandomData();
+            document.getElementById('coach-name').textContent = data.coach;
+            document.getElementById('available-seats').textContent = data.seats;
+            
+            const progress = document.getElementById('progress');
+            const percentage = (data.seats / 50) * 100;
+            progress.style.width = percentage + "%";
+            progress.textContent = data.seats;
+            
+            let recommendation = "";
+            if (data.seats > 30) {
+                recommendation = "✅ Best Choice! Plenty of seats available.";
+            } else if (data.seats > 10) {
+                recommendation = "⚠ Moderate Availability. Consider booking soon!";
+            } else {
+                recommendation = "❌ Almost Full! Try another coach.";
+            }
+            document.getElementById('recommendation').textContent = recommendation;
+        }
+        updateSeatInfo();
+        setInterval(updateSeatInfo, 5000); // Update every 5 seconds
+      
+
+    </script>
+    <a href="index5.html">Continue next!</a>
+</body>
+</html>

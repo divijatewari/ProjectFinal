@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetroGo Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2f3651;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #7c8ba3;
+            width: 320px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            width: 80px;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d1d1d1;
+        }
+
+        .forgot {
+            margin-top: 10px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .signup {
+            margin-top: 15px;
+            font-size: 16px;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .signup:hover {
+            background-color: #d1d1d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="metrogo-logo.png" alt="MetroGo Logo">
+        </div>
+        <div class="image-container">
+            <img src="metro-image.png" alt="Metro Image">
+        </div>
+        <input type="text" placeholder="Enter your mobile number">
+        <input type="password" placeholder="Password">
+        <button class="btn">Login</button>
+        <div class="forgot">Forgot Password?</div>
+        <div class="forgot">Login using Username</div>
+        <button class="signup">Sign Up</button>
+    </div>
+<a href="index1.html">Continue next!</a>
+</body>
+</html>

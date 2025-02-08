@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Route</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #2f3651;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+        }
+
+        .logo img {
+            width: 50px;
+        }
+
+        .home-icon img {
+            width: 30px;
+        }
+
+        .info-box {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .info {
+            background-color: #d3d3d3;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            width: 30%;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .timing-box {
+            background-color: #c8c5c5;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .route-box {
+            background-color: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .route-header {
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .yellow-line {
+            color: orange;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .blue-line {
+            color: blue;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .stations {
+            margin-left: 10px;
+        }
+
+        .stations p {
+            color: blue;
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        .change-train {
+            color: red;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .book-ticket {
+            margin-top: 15px;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 300px;
+            cursor: pointer;
+        }
+
+        .book-ticket:hover {
+            background-color: #d1d1d1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <img src="metro-logo.png" alt="Metro Logo">
+        </div>
+        <div class="home-icon">
+            <img src="home-icon.png" alt="Home">
+        </div>
+    </div>
+
+    <div class="info-box">
+        <div class="info">Fare<br>₹ 40</div>
+        <div class="info">Runtime<br>47 min</div>
+        <div class="info">Interchanges<br>1</div>
+    </div>
+
+    <div class="timing-box">Metro Timings<br>5:00am - 11:59pm</div>
+
+    <div class="route-header">Metro Route</div>
+
+    <div class="route-box">
+        <p class="yellow-line">Yellow Line<br>Towards Huda City Centre<br>Platform 1</p>
+        <div class="stations">
+            <p>Kashmere Gate</p>
+            <p>Chandni Chowk</p>
+            <p>Chawri Bazar</p>
+            <p>New Delhi</p>
+            <p>Rajiv Chowk</p>
+            <p class="change-train">Change Train</p>
+        </div>
+
+        <p class="blue-line">Blue Line<br>Towards Dwarka Sec-21<br>Platform 4</p>
+        <div class="stations">
+            <p>Rajiv Chowk</p>
+            <p>R K Ashram Marg</p>
+            <p>Jhandewalan</p>
+            <p>Karol Bagh</p>
+            <p>Rajendra Place</p>
+            <p>Patel Nagar</p>
+            <p>Shadipur</p>
+            <p>Kirti Nagar</p>
+            <p>Moti Nagar</p>
+            <p>Ramesh Nagar</p>
+            <p>Rajouri Garden</p>
+            <p>Tagore Garden</p>
+            <p>Subhash Nagar</p>
+        </div>
+    </div>
+
+    <button class="book-ticket">Book a ticket</button>
+<a href="index3.html">Continue next!</a>
+
+</body>
+</html>
